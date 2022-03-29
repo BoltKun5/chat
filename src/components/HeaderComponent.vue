@@ -31,14 +31,10 @@ header {
     & p {
       color: white;
       margin-left: 5px;
-      font-family: Poppins;
       font-size: 29px;
       font-weight: 600;
-      text-shadow: 3px 2px 0px 2D2D68;
+      text-shadow: 3px 2px 0px #2D2D68;
     }
   }
-}
-* {
-  font-family: 'Poppins', sans-serif;
 }
 </style>

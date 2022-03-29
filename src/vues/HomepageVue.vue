@@ -1,15 +1,21 @@
 <template>
-    <div>azezae
-zaeazeazeeaz
-    </div>
+  <HeaderComponent />
+  <MessagesComponent />
 </template>
 
 <script>
-    export default {
-        name: "HomepageVue"
-    }
+import HeaderComponent from "@/components/HeaderComponent.vue";
+import MessagesComponent from "@/components/MessagesComponent.vue";
+
+export default {
+  data() {
+    return {};
+  },
+  components: {
+    HeaderComponent,
+    MessagesComponent
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

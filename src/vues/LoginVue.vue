@@ -29,7 +29,4 @@ export default {
 body {
     height: 100vh;
 }
-* {
-  font-family: Poppins;
-}
 </style>
