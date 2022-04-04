@@ -15,37 +15,71 @@
       </svg>
       <div>Vos messages</div>
     </div>
-    <hr />
+    <div class="hr">
+      <hr />
+    </div>
+    <MessageComponent
+      v-for="(listItem, index) in list"
+      :key="index"
+      :isMe="listItem.isMe"
+      :name="listItem.name"
+      :lastMessage="listItem.lastMessage"
+    />
   </div>
 </template>
 
 <script>
+import MessageComponent from "@/components/MessageComponent";
 export default {
   data() {
     return {
       displayedForm: "login",
+      list: [
+        {
+          name: "Benjamin",
+          lastMessage: "qui tu traites de chien",
+          isMe: false
+          },
+        {
+          name: "Adem",
+          lastMessage: "20 / 20 et toi",
+          isMe: true
+          }
+        ],
     };
   },
-  components: {},
+  components: {
+    MessageComponent,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .MessagesComponent {
+  align-items: center;
   display: flex;
   flex-direction: column;
   flex: 1;
   & .title {
+    width: 80%;
     display: flex;
     font-weight: bold;
     font-size: 22px;
     align-items: center;
-    margin-left: 38px;
-    margin-top: 51px;
+    margin-top: 45px;
+    margin-bottom: 30px;
   }
-  & div {
-    margin-left: 15px;
+  & div:first-child {
     color: $darkblue;
+  }
+  & .hr {
+    width: 80%;
+    margin: 0 auto 15px auto;
+    height: 1px;
+  }
+  hr {
+    border: $lightgrey 1px solid;
+    margin: 0;
   }
 }
 </style>
