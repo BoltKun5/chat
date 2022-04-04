@@ -21,6 +21,7 @@
     <MessageComponent
       v-for="(listItem, index) in list"
       :key="index"
+      @click="goToPage(index)"
       :isMe="listItem.isMe"
       :name="listItem.name"
       :lastMessage="listItem.lastMessage"
@@ -51,6 +52,11 @@ export default {
   components: {
     MessageComponent,
   },
+  methods: {
+      goToPage(id) {
+        this.$router.push('/discussion/'+id)
+      }
+    }
 };
 </script>
 
