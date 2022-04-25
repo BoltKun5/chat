@@ -1,5 +1,5 @@
 <template>
-  <HeaderComponent />
+  <HeaderComponent :isConnected="true" />
   <MessagesComponent />
 </template>
 

@@ -1,24 +1,38 @@
 <template>
   <header>
-    <a href>
+    <router-link :to="isConnected ? '/home' : ''">
       <img src="@/assets/logo.png" />
       <p>SpeakTok</p>
-    </a>
+    </router-link>
+    <OwnProfileComponent v-if="isConnected"/>
   </header>
 </template>
 
 <script>
+import OwnProfileComponent from "../components/OwnProfileComponent.vue"
+
 export default {
-  name: "HeaderComponent"
-}
+  name: "HeaderComponent",
+  components: {
+    OwnProfileComponent,
+  },
+  props: {
+    isConnected: {
+      default: false,
+      type: Boolean
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 header {
-  background: #5C7397;
+  background: #5c7397;
   height: 95px;
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
   & a {
     display: flex;
     text-decoration: none;
@@ -33,7 +47,7 @@ header {
       margin-left: 5px;
       font-size: 29px;
       font-weight: 600;
-      text-shadow: 3px 2px 0px #2D2D68;
+      text-shadow: 3px 2px 0px #2d2d68;
     }
   }
 }

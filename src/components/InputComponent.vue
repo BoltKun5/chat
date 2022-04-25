@@ -5,7 +5,7 @@
       type="text"
       :placeholder="placeholder"
       v-on:input="updateValue($event.target.value)"
-      :value="value"
+      :value="modelValue"
     />
   </div>
 </template>
@@ -16,11 +16,11 @@ export default {
   props: {
     label: String,
     placeholder: String,
-    value: String
+    modelValue: String
   },
   methods: {
     updateValue: function (value) {
-      this.$emit("input", value);
+      this.$emit("update:modelValue", value);
     },
   },
 };
@@ -32,9 +32,9 @@ export default {
   flex-direction: column;
   width: 80%;
   max-width: 320px;
-  margin: 15px auto 0 auto;
   font-size: 14px;
   color: 2d2d68;
+  
   & input {
     padding: 0 10px;
     outline: none;

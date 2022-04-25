@@ -7,7 +7,6 @@
 import HeaderComponent from "@/components/HeaderComponent.vue";
 import LoginFormComponent from "@/components/LoginFormComponent.vue";
 
-
 export default {
     data() {
         return {

@@ -4,8 +4,8 @@
       {{ displayedForm === "login" ? "Se connecter" : "Inscription" }}
     </div>
     <template v-if="displayedForm === 'login'">
-      <InputComponent label="Adresse email" />
-      <InputComponent label="Mot de passe" />
+      <InputComponent label="Adresse email" class="LoginFormInput"/>
+      <InputComponent label="Mot de passe" class="LoginFormInput"/>
       <div class="Submit">
         <router-link to="/home"><ButtonComponent color="primary" value="Se connecter" /></router-link>
         <p>OU</p>
@@ -17,10 +17,10 @@
       </div>
     </template>
     <template v-else>
-      <InputComponent label="Nom" />
-      <InputComponent label="Prénom" />
-      <InputComponent label="Adresse email" />
-      <InputComponent label="Mot de passe" />
+      <InputComponent label="Nom" class="LoginFormInput" />
+      <InputComponent label="Prénom" class="LoginFormInput" />
+      <InputComponent label="Adresse email" class="LoginFormInput" />
+      <InputComponent label="Mot de passe" class="LoginFormInput" />
       <div class="Submit">
         <router-link to="/home"
           ><ButtonComponent color="secondary" value="S'inscrire"
@@ -76,5 +76,8 @@ export default {
     flex-direction: column;
     margin-top: 15px;
   }
+}
+.LoginFormInput {
+  margin: 15px auto 0 auto;
 }
 </style>
