@@ -26,14 +26,14 @@
       <hr />
     </div>
     <div class="messages">
-      <single-message-component
+      <SingleMessageComponent
         v-for="message in messages"
         :key="message.id"
         :message="message"
       />
     </div>
     <div class="SendMessage">
-      <input-component placeholder="Écrire..." class="NewTextInput" v-model="newMessageText" />
+      <InputComponent placeholder="Écrire..." class="NewTextInput" v-model="newMessageText" />
       <div class="SendButton">
         <svg
           width="24"
@@ -71,23 +71,9 @@ export default {
   data() {
     return {
       newMessageText: "",
-      messages: [
-        {
-          contenu: "Salut, ça va ?",
-          isMe: true,
-          id: 1,
-        },
-        {
-          contenu: "Oui, et toi ?",
-          isMe: false,
-          id: 2,
-        },
-        {
-          contenu: "Comme un lundi",
-          isMe: true,
-          id: 3,
-        },
-      ],
+      // Mon ID devrait être récupéré à la connexion et stocké dans un store par exemple
+      myId: 1,
+      messages: [],
     };
   },
   components: {

@@ -19,44 +19,42 @@
       <hr />
     </div>
     <MessageComponent
-      v-for="(listItem, index) in list"
-      :key="index"
+      v-for="listItem in list"
+      :key="listItem.id"
       @click="goToPage(index)"
-      :isMe="listItem.isMe"
       :name="listItem.name"
-      :lastMessage="listItem.lastMessage"
+      :lastMessage="listItem[listItem.length - 1].attributes.Message"
     />
   </div>
 </template>
 
 <script>
 import MessageComponent from "@/components/MessageComponent";
+import api from "@/plugins/axios.js";
 export default {
   data() {
     return {
       displayedForm: "login",
-      list: [
-        {
-          name: "Benjamin",
-          lastMessage: "qui tu traites de chien",
-          isMe: false
-          },
-        {
-          name: "Adem",
-          lastMessage: "20 / 20 et toi",
-          isMe: true
-          }
-        ],
+      list: [],
+      // Mon ID devrait être récupéré à la connexion et stocké dans un store par exemple
+      myId: 1,
     };
   },
   components: {
     MessageComponent,
   },
   methods: {
-      goToPage(id) {
-        this.$router.push('/discussion/'+id)
-      }
-    }
+    goToPage(id) {
+      this.$router.push("/discussion/" + id);
+    },
+  },
+  async mounted() {
+    const result = await api.get("messages?populate=*");
+    this.list.push(result.data.data);
+  },
+  computed: {
+    
+  }
 };
 </script>
 
