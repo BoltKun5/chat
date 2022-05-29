@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import api from "@/plugins/axios.js"
 export default {
   name: "MessageComponent",
   props: {
@@ -21,12 +20,6 @@ export default {
   },
   data() {
     return {};
-  },
-  async mounted() {
-    const result = await api.get(
-      `messages/${this.$route.params.id}?populate=*`
-    );
-    this.list.push(result.data.data);
   },
 };
 </script>
@@ -38,7 +31,8 @@ export default {
   width: 80%;
   border-bottom: 1px $lightgrey solid;
   padding: 15px 0;
-
+  cursor: pointer;
+  
   & .ProfilePicture {
     margin-right: 10px;
     & img {
@@ -58,6 +52,10 @@ export default {
       width: 100%;
     }
   }
+}
+
+img {
+  margin-right: 10px;
 }
 
 .addMe::before {

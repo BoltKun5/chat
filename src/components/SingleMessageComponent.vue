@@ -1,7 +1,7 @@
 <template>
   <div class="messageWrapper">
-    <div class="message" :class="message.isMe ? 'myMessage' : ''">
-      {{ message.contenu }}
+    <div class="message" :class="isMe ? 'myMessage' : ''">
+      {{ message }}
     </div>
   </div>
 </template>
@@ -11,9 +11,13 @@ export default {
   name: "SingleMessageComponent",
   props: {
     message: {
-      type: Object,
+      type: String,
       required: true,
     },
+    isMe: {
+      type: Boolean,
+      required: true
+    }
   },
   data() {
     return {};

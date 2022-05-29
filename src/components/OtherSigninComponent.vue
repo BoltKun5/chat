@@ -2,15 +2,15 @@
     <div class="InscriptionMedias">
         <p>S'inscrire à l'aide de</p>
         <div class="Medias">
-            <a href>
+            <div>
                 <img src="@/assets/facebook.svg" />
-            </a>
-            <a href>
+            </div>
+            <div>
                 <img src="@/assets/google.svg" />
-            </a>
-            <a href>
+            </div>
+            <div>
                 <img src="@/assets/twitter.svg" />
-            </a>
+            </div>
         </div>
     </div>
 </template>
@@ -37,7 +37,7 @@ export default {
         align-content: center;
         justify-content: center;
         margin-bottom: 20px;
-        & a {
+        & div {
             height: 27px;
             margin: 0 15px;
         }

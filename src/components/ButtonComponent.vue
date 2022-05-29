@@ -31,6 +31,7 @@ export default {
     justify-content: center;
     align-items: center;
     margin:10px auto;
+    cursor: pointer;
 }
 
 .primary {

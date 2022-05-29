@@ -36,7 +36,7 @@ header {
   & a {
     display: flex;
     text-decoration: none;
-    margin: auto;
+    margin: auto auto auto 30px;
     & img {
       height: 57px;
       margin: auto 0 auto 0;

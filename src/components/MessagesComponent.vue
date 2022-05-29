@@ -18,11 +18,15 @@
     <div class="hr">
       <hr />
     </div>
+    <!-- Normalement, on devrait récupérer le nom du contact ou de la conversation directement dans l'API mais on a pas d'endpoint pour ça donc on simule un peu -->
     <MessageComponent
       v-for="listItem in list"
       :key="listItem.id"
-      @click="goToPage(index)"
-      :name="listItem.name"
+      @click="goToPage(getId(listItem))"
+      :name="getName(listItem)"
+      :isMe="
+        listItem[listItem.length - 1].attributes.from.data.id === this.myId
+      "
       :lastMessage="listItem[listItem.length - 1].attributes.Message"
     />
   </div>
@@ -44,6 +48,24 @@ export default {
     MessageComponent,
   },
   methods: {
+    getName(array) {
+      let name = "";
+      array.forEach((element) => {
+        if (element.attributes.from.data.id !== 1) {
+          name = element.attributes.from.data.attributes.username;
+        }
+      });
+      return name;
+    },
+    getId(array) {
+      let id = 0;
+      array.forEach((element) => {
+        if (element.attributes.from.data.id !== 1) {
+          id = element.attributes.from.data.id;
+        }
+      });
+      return id;
+    },
     goToPage(id) {
       this.$router.push("/discussion/" + id);
     },
@@ -52,9 +74,7 @@ export default {
     const result = await api.get("messages?populate=*");
     this.list.push(result.data.data);
   },
-  computed: {
-    
-  }
+  computed: {},
 };
 </script>
 
